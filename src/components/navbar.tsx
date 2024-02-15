@@ -14,20 +14,20 @@ import { Input } from "@nextui-org/input";
 
 import { link as linkStyles } from "@nextui-org/theme";
 
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "../config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
 
-import { ThemeSwitch } from "@/components/theme-switch";
+import { ThemeSwitch } from "../components/theme-switch";
 import {
 	TwitterIcon,
 	GithubIcon,
 	DiscordIcon,
 	HeartFilledIcon,
 	SearchIcon,
-} from "@/components/icons";
+} from "../components/icons";
 
-import { Logo } from "@/components/icons";
+import { Logo } from "../components/icons";
 
 export const Navbar = () => {
 	const searchInput = (
@@ -124,9 +124,7 @@ export const Navbar = () => {
 						<NavbarMenuItem key={`${item}-${index}`}>
 							<Link
 								color={
-									index === 2
-										? "primary"
-										: index === siteConfig.navMenuItems.length - 1
+										index === siteConfig.navMenuItems.length - 1
 										? "danger"
 										: "foreground"
 								}
