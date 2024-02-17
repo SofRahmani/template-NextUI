@@ -7,14 +7,11 @@ import {
   NavbarContent,
   NavbarItem,
   NavbarMenu,
-  NavbarMenuItem,
   NavbarMenuToggle,
   Navbar as NextUINavbar
 } from "@nextui-org/navbar";
+import NavItems from "./navbar/NavItems";
 
-import { link as linkStyles } from "@nextui-org/theme";
-
-import clsx from "clsx";
 import NextLink from "next/link";
 import { siteConfig } from "../../../config/site";
 
@@ -24,6 +21,7 @@ import { ThemeSwitch } from "./theme-switch";
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/src/lib/dictionary";
 import { Logo } from "./icons";
+import NavMenuItems from "./navbar/NavMenuItems";
 
 export const Navbar = async ({ lang }: { lang: Locale }) => {
   const { navigation } = await getDictionary(lang);
@@ -59,70 +57,11 @@ export const Navbar = async ({ lang }: { lang: Locale }) => {
           </NextLink>
         </NavbarBrand>
         <ul className="ml-2 hidden justify-start gap-4 lg:flex">
-          <NavbarItem>
-            <NextLink
-              className={clsx(
-                linkStyles({ color: "foreground" }),
-                "data-[active=true]:font-medium data-[active=true]:text-primary"
-              )}
-              color="foreground"
-              href={`/${lang}`}
-            >
-              {navigation.home}
-            </NextLink>
-          </NavbarItem>
-
-          <NavbarItem>
-            <NextLink
-              className={clsx(
-                linkStyles({ color: "foreground" }),
-                "data-[active=true]:font-medium data-[active=true]:text-primary"
-              )}
-              color="foreground"
-              href={`/${lang}/docs`}
-            >
-              {navigation.Docs}
-            </NextLink>
-          </NavbarItem>
-
-          <NavbarItem>
-            <NextLink
-              className={clsx(
-                linkStyles({ color: "foreground" }),
-                "data-[active=true]:font-medium data-[active=true]:text-primary"
-              )}
-              color="foreground"
-              href={`/${lang}/pricing`}
-            >
-              {navigation.pricing}
-            </NextLink>
-          </NavbarItem>
-
-          <NavbarItem>
-            <NextLink
-              className={clsx(
-                linkStyles({ color: "foreground" }),
-                "data-[active=true]:font-medium data-[active=true]:text-primary"
-              )}
-              color="foreground"
-              href={`/${lang}/blog`}
-            >
-              {navigation.blog}
-            </NextLink>
-          </NavbarItem>
-
-          <NavbarItem>
-            <NextLink
-              className={clsx(
-                linkStyles({ color: "foreground" }),
-                "data-[active=true]:font-medium data-[active=true]:text-primary"
-              )}
-              color="foreground"
-              href={`/${lang}/about`}
-            >
-              {navigation.about}
-            </NextLink>
-          </NavbarItem>
+          <NavItems lang={lang} path="/" content={navigation.home} />
+          <NavItems lang={lang} path="/docs" content={navigation.Docs} />
+          <NavItems lang={lang} path="/pricing" content={navigation.pricing} />
+          <NavItems lang={lang} path="/blog" content={navigation.blog} />
+          <NavItems lang={lang} path="/about" content={navigation.about} />
         </ul>
       </NavbarContent>
 
@@ -165,35 +104,11 @@ export const Navbar = async ({ lang }: { lang: Locale }) => {
       <NavbarMenu>
         {searchInput}
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          <NavbarMenuItem>
-            <Link color={`foreground`} href={`/${lang}`} size="lg">
-              {navigation.home}
-            </Link>
-          </NavbarMenuItem>
-
-          <NavbarMenuItem>
-            <Link color={`foreground`} href={`/${lang}/docs`} size="lg">
-              {navigation.Docs}
-            </Link>
-          </NavbarMenuItem>
-
-          <NavbarMenuItem>
-            <Link color={`foreground`} href={`/${lang}/pricing`} size="lg">
-              {navigation.pricing}
-            </Link>
-          </NavbarMenuItem>
-
-          <NavbarMenuItem>
-            <Link color={`foreground`} href={`/${lang}/blog`} size="lg">
-              {navigation.blog}
-            </Link>
-          </NavbarMenuItem>
-
-          <NavbarMenuItem>
-            <Link color={`foreground`} href={`/${lang}/about`} size="lg">
-              {navigation.about}
-            </Link>
-          </NavbarMenuItem>
+          <NavMenuItems lang={lang} path="/" content={navigation.home} />
+          <NavMenuItems lang={lang} path="/docs" content={navigation.Docs} />
+          <NavMenuItems lang={lang} path="/pricing" content={navigation.pricing} />
+          <NavMenuItems lang={lang} path="/blog" content={navigation.blog} />
+          <NavMenuItems lang={lang} path="/about" content={navigation.about} />
         </div>
       </NavbarMenu>
     </NextUINavbar>
