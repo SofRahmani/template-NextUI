@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "Docs": "Document",
+    "pricing": "Prix",
+    "blog": "Blog",
+    "about": "A propos"
+  },
+
+  "page": {
+    "home": {
+      "title": "Bienvenue sur la page d'accueil",
+      "content": "Ceci est le contenu de la page d'accueil"
+    },
+    "docs": {
+      "title": "Bienvenue sur la page de documentation",
+      "content": "Ceci est le contenu de la page de documentation"
+    },
+    "pricing": {
+      "title": "Bienvenue sur la page de tarification",
+      "content": "Ceci est le contenu de la page de tarification"
+    },
+    "blog": {
+      "title": "Bienvenue sur la page de blog",
+      "content": "Ceci est le contenu de la page de blog"
+    },
+    "about": {
+      "title": "Bienvenue sur la page à propos de nous",
+      "content": "Ceci est le contenu de la page à propos de nous"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "home": "Home",
+    "Docs": "Docs",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "about": "About"
+  },
+
+  "page": {
+    "home": {
+      "title": "Welcome to the home page",
+      "content": "This is the home page content"
+    },
+    "docs": {
+      "title": "Welcome to the docs page",
+      "content": "This is the docs page content"
+    },
+    "pricing": {
+      "title": "Welcome to the pricing page",
+      "content": "This is the pricing page content"
+    },
+    "blog": {
+      "title": "Welcome to the blog page",
+      "content": "This is the blog page content"
+    },
+    "about": {
+      "title": "Welcome to the about page",
+      "content": "This is the about page content"
+    }
+  }
+}

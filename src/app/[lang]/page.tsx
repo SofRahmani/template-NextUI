@@ -2,14 +2,14 @@ import { Code } from "@nextui-org/code";
 import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
 import { button as buttonStyles } from "@nextui-org/theme";
-import { GithubIcon } from "../components/icons";
-import { subtitle, title } from "../components/primitives";
-import { siteConfig } from "../config/site";
+import { siteConfig } from "../../config/site";
+import { GithubIcon } from "./components/icons";
+import { subtitle, title } from "./components/primitives";
 
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
+      <div className="inline-block max-w-lg justify-center text-center">
         <h1 className={title()}>Make</h1>
         <h1 className={title({ color: "violet" })}>beautiful</h1>
         <br />

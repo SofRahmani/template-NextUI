@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@nextui-org/button": "2.0.26",
     "@nextui-org/code": "2.0.24",
     "@nextui-org/input": "2.1.16",
@@ -30,6 +31,7 @@
     "eslint-config-next": "14.0.2",
     "framer-motion": "^10.16.4",
     "intl-messageformat": "^10.5.0",
+    "negotiator": "^0.6.3",
     "next": "14.0.2",
     "next-themes": "^0.2.1",
     "postcss": "8.4.31",
@@ -40,6 +42,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.3",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11"
   }
