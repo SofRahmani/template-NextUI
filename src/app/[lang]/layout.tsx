@@ -1,3 +1,4 @@
+import { Locale, i18n } from "@/i18n.config";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { Metadata } from "next";
@@ -6,7 +7,6 @@ import { siteConfig } from "../../config/site";
 import "../../styles/globals.css";
 import { Navbar } from "./components/navbar";
 import { Providers } from "./providers";
-import { Locale } from '@/i18n.config'
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +22,17 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({ children, params }: { children: React.ReactNode, params: { lang: Locale }}) {
+export async function generateStaticParams() {
+  return i18n.locales.map(locale => ({ lang: locale }));
+}
+
+export default function RootLayout({
+  children,
+  params
+}: {
+  children: React.ReactNode;
+  params: { lang: Locale };
+}) {
   return (
     <html lang={params.lang} suppressHydrationWarning>
       <head />

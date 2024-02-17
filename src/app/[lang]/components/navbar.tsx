@@ -21,9 +21,9 @@ import { siteConfig } from "../../../config/site";
 import { DiscordIcon, GithubIcon, HeartFilledIcon, SearchIcon, TwitterIcon } from "./icons";
 import { ThemeSwitch } from "./theme-switch";
 
+import { Locale } from "@/i18n.config";
+import { getDictionary } from "@/src/lib/dictionary";
 import { Logo } from "./icons";
-import { Locale } from '@/i18n.config'
-import { getDictionary } from '@/src/lib/dictionary'
 
 export const Navbar = async ({ lang }: { lang: Locale }) => {
   const { navigation } = await getDictionary(lang);
@@ -41,7 +41,7 @@ export const Navbar = async ({ lang }: { lang: Locale }) => {
         </Kbd>
       }
       labelPlacement="outside"
-      placeholder="Search..."
+      placeholder={navigation.search}
       startContent={
         <SearchIcon className="pointer-events-none flex-shrink-0 text-base text-default-400" />
       }
@@ -59,18 +59,70 @@ export const Navbar = async ({ lang }: { lang: Locale }) => {
           </NextLink>
         </NavbarBrand>
         <ul className="ml-2 hidden justify-start gap-4 lg:flex">
-            <NavbarItem>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:font-medium data-[active=true]:text-primary"
-                )}
-                color="foreground"
-                href={`/${lang}`}
-              >
-                {navigation.home}
-              </NextLink>
-            </NavbarItem>
+          <NavbarItem>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:font-medium data-[active=true]:text-primary"
+              )}
+              color="foreground"
+              href={`/${lang}`}
+            >
+              {navigation.home}
+            </NextLink>
+          </NavbarItem>
+
+          <NavbarItem>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:font-medium data-[active=true]:text-primary"
+              )}
+              color="foreground"
+              href={`/${lang}/docs`}
+            >
+              {navigation.Docs}
+            </NextLink>
+          </NavbarItem>
+
+          <NavbarItem>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:font-medium data-[active=true]:text-primary"
+              )}
+              color="foreground"
+              href={`/${lang}/pricing`}
+            >
+              {navigation.pricing}
+            </NextLink>
+          </NavbarItem>
+
+          <NavbarItem>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:font-medium data-[active=true]:text-primary"
+              )}
+              color="foreground"
+              href={`/${lang}/blog`}
+            >
+              {navigation.blog}
+            </NextLink>
+          </NavbarItem>
+
+          <NavbarItem>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:font-medium data-[active=true]:text-primary"
+              )}
+              color="foreground"
+              href={`/${lang}/about`}
+            >
+              {navigation.about}
+            </NextLink>
+          </NavbarItem>
         </ul>
       </NavbarContent>
 
@@ -113,17 +165,35 @@ export const Navbar = async ({ lang }: { lang: Locale }) => {
       <NavbarMenu>
         {searchInput}
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={index === siteConfig.navMenuItems.length - 1 ? "danger" : "foreground"}
-                href="#"
-                size="lg"
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+          <NavbarMenuItem>
+            <Link color={`foreground`} href={`/${lang}`} size="lg">
+              {navigation.home}
+            </Link>
+          </NavbarMenuItem>
+
+          <NavbarMenuItem>
+            <Link color={`foreground`} href={`/${lang}/docs`} size="lg">
+              {navigation.Docs}
+            </Link>
+          </NavbarMenuItem>
+
+          <NavbarMenuItem>
+            <Link color={`foreground`} href={`/${lang}/pricing`} size="lg">
+              {navigation.pricing}
+            </Link>
+          </NavbarMenuItem>
+
+          <NavbarMenuItem>
+            <Link color={`foreground`} href={`/${lang}/blog`} size="lg">
+              {navigation.blog}
+            </Link>
+          </NavbarMenuItem>
+
+          <NavbarMenuItem>
+            <Link color={`foreground`} href={`/${lang}/about`} size="lg">
+              {navigation.about}
+            </Link>
+          </NavbarMenuItem>
         </div>
       </NavbarMenu>
     </NextUINavbar>
